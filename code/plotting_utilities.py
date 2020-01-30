@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
@@ -6,7 +7,7 @@ class Plotter(object):
     def __init__(self):
         pass
 
-    def plot_probability_distribution(self, pred_df):
+    def plot_probability_distribution(self, pred_df, classifier_name):
         # Create figure.
         plt.figure(figsize = (10,7))
 
@@ -23,7 +24,7 @@ class Plotter(object):
                  label='Outcome = 1')
 
         # Label axes.
-        plt.title('Distribution of P(Outcome = 1)', fontsize=22)
+        plt.title('{} - Distribution of P(Outcome = 1)'.format(classifier_name), fontsize=22)
         plt.ylabel('Frequency', fontsize=18)
         plt.xlabel('Predicted Probability that Outcome = 1', fontsize=18)
 
@@ -42,7 +43,7 @@ class Plotter(object):
         false_positive = df[(df[true_col] == 0) & (df[pred_prob_col] > threshold)].shape[0]
         return 1 - (true_negative / (true_negative + false_positive))
 
-    def plot_roc_curve(self, pred_df):
+    def plot_roc_curve(self, pred_df, classifier_name):
         # Create figure.
         plt.figure(figsize=(10, 7))
 
@@ -65,10 +66,21 @@ class Plotter(object):
                  linestyle='--')
 
         # Label axes.
-        plt.title(f'ROC Curve with AUC = {round(roc_auc_score(pred_df["true_values"], pred_df["pred_probs"]), 3)}',
+        plt.title(f'{classifier_name} - ROC Curve with AUC = {round(roc_auc_score(pred_df["true_values"], pred_df["pred_probs"]), 3)}',
                   fontsize=22)
         plt.ylabel('Sensitivity', fontsize=18)
         plt.xlabel('1 - Specificity', fontsize=18)
 
         # Create legend.
         plt.legend(fontsize=16);
+
+    def plot_horizontal_barchart(self, title, df):
+        plt.figure(figsize=(12, 7))
+        plt.title(title, fontsize=20)
+
+        sns.set_style("whitegrid")
+        sns.barplot(data=df.head(20), x='freq', y='word', orient='h')
+
+        plt.xlabel('frequency (average word count per post)', fontsize=18)
+        plt.ylabel('word', fontsize=18)
+        plt.tick_params(labelsize=15)
