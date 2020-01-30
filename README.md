@@ -85,38 +85,38 @@ The classification metrics of the models used are as follows:
     <tbody>
         <tr>
             <td>Accuracy</td>
-            <td>0.837</td>
-            <td>0.848</td>
-            <td>0.885</td>
-            <td>0.877</td>
+            <td>0.841</td>
+            <td>0.850</td>
+            <td>0.888</td>
+            <td>0.869</td>
         </tr>
         <tr>
             <td>Misclassification</td>
-            <td>0.163</td>
-            <td>0.152</td>
-            <td>0.115</td>
-            <td>0.123</td>
+            <td>0.159</td>
+            <td>0.150</td>
+            <td>0.112</td>
+            <td>0.131</td>
         </tr>
         <tr>
             <td>Sensitivity</td>
-            <td>0.856</td>
-            <td>0.829</td>
+            <td>0.851</td>
             <td>0.845</td>
             <td>0.841</td>
+            <td>0.820</td>
         </tr>
         <tr>
             <td>Specificity</td>
-            <td>0.818</td>
-            <td>0.867</td>
-            <td>0.924</td>
-            <td>0.912</td>
+            <td>0.831</td>
+            <td>0.854</td>
+            <td>0.935</td>
+            <td>0.918</td>
         </tr>
         <tr>
             <td>Precision</td>
-            <td>0.824</td>
-            <td>0.862</td>
-            <td>0.916</td>
-            <td>0.904</td>
+            <td>0.837</td>
+            <td>0.855</td>
+            <td>0.928</td>
+            <td>0.910</td>
         </tr>
     </tbody>
 </table>
